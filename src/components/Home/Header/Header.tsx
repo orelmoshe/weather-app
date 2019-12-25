@@ -1,15 +1,21 @@
 import * as React from 'react';
-import { Container, Logo,} from './Header.styles';
-import Images from '../../../assets/images/images';
-import Logout from './Logout/Logout';
+import { Container,Text,NavigationContainer,Button,TextButton} from './Header.styles';
+import {pageHeaderText} from '../../../consts/text.const';
 
 interface HeaderProps {}
 
 const Header = ({}: HeaderProps) => {
 	return (
 		<Container>
-			<Logo src={Images.logo} />
-			<Logout/>
+			<Text>{pageHeaderText.HEROLO_WEATHER_TASK}</Text>
+			<NavigationContainer>
+				<Button>
+					<TextButton>{pageHeaderText.HOME}</TextButton>
+				</Button>
+				<Button>
+					<TextButton>{pageHeaderText.FAVORITES}</TextButton>
+				</Button>
+			</NavigationContainer>
 		</Container>
 	);
 };

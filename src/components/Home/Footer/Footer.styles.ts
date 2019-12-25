@@ -16,27 +16,3 @@ export const Text = styled.div`
 	font-size: 15px;
 	letter-spacing: -0.06px;
 `;
-
-interface DoneProps {
-	width?: string;
-}
-
-export const Done = styled.div<DoneProps>`
-	height: 44.37px;
-	width:  ${props => props.width};
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 10px;
-	background-color: #96d764;
-	cursor: pointer;
-`;
-
-export const TextDone = styled.div`
-	color: #ffffff;
-	font-family: Poppins;
-	font-size: 16px;
-	font-weight: bold;
-	letter-spacing: 0.2px;
-	text-align: center;
-`;
