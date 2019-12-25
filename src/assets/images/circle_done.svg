@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>circle_done</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Bread-creambs/Done">
+            <g id="circle_done">
+                <circle id="Oval-Copy-29" fill="#96D764" opacity="0.900000036" cx="10" cy="10" r="10"></circle>
+                <path d="M8.27238335,12.105408 L14.7603426,5.83272718 C15.0190582,5.58259606 15.4292784,5.58190125 15.6888398,5.83115453 C15.9354566,6.06797721 15.9433963,6.45988232 15.7065736,6.70649908 C15.7007827,6.71252947 15.6948702,6.71844193 15.6888398,6.72423283 L8.27238335,13.8461538 L8.27238335,13.8461538 L5.06824399,10.769263 C4.82171884,10.5325282 4.81378211,10.1407687 5.05051683,9.89424356 C5.05257799,9.89209715 5.05465462,9.88996564 5.05674653,9.88784918 C5.30152713,9.64019727 5.6998107,9.63500193 5.95096783,9.87618465 L8.27238335,12.105408 L8.27238335,12.105408 Z" id="icon_done_white" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
