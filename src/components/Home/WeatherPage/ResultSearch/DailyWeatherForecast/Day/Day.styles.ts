@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: calc(170px - 10px - 10px);
-  width: 100px;
+  width: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -20,8 +20,8 @@ export const TextDay = styled.div`
 `;
 
 export const Icon = styled.img`
-  height: 24px;
-  width: 24px;
+  height: 35px;
+  width: 35px;
 `;
 
 export const Degrees = styled.div`

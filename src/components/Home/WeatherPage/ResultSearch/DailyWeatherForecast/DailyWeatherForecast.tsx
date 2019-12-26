@@ -7,7 +7,7 @@ interface DailyWeatherForecastProps {
 }
 
 const DailyWeatherForecast = ({ }: DailyWeatherForecastProps) => {
-	const arrayDays = ['Sun' , 'Mon', 'Tue' , 'Wed' , 'Thu' , 'Fri', 'Sat'];
+	const arrayDays = ['Sun' , 'Mon', 'Tue' , 'Wed' , 'Thu'];
 	return (
 		<Container>
            {arrayDays &&
