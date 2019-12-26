@@ -30,7 +30,11 @@ export const NavigationContainer = styled.div`
   align-items: center;
 `;
 
-export const Button = styled.div`
+interface ButtonProps {
+	clicked?: boolean;
+}
+
+export const Button = styled.div<ButtonProps>`
   height: 56px;
   width: 100px;
   display: flex;
@@ -39,7 +43,7 @@ export const Button = styled.div`
   box-sizing: border-box;
   border: 1px solid rgba(53, 66, 84, 0.12);
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: ${props => props.clicked? '#ffcb05' :'#ffffff'};
   cursor: pointer;
   &:hover {
     opacity: 0.3;

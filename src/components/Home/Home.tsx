@@ -2,20 +2,35 @@ import * as React from 'react';
 import { Container } from './Home.styles';
 import Header from './Header/Header';
 import WeatherPage from './WeatherPage/WeatherPage';
-
+import { IAppState } from '../../redux/state/index';
+import { connect } from 'react-redux';
+import { setCurrentPage } from '../../redux/actions/route.action';
 interface HomeProps {
-
+	currentPageRedux: string;
+	setCurrentPageRedux: (payload: string) => void;
 }
 
-const Home = ({ }: HomeProps) => {
+const Home = ({currentPageRedux,setCurrentPageRedux}: HomeProps) => {
 
 
 	return (
 		<Container>
-			<Header />
-			<WeatherPage></WeatherPage>
+			<Header currentPage={currentPageRedux} setCurrentPage={setCurrentPageRedux} />
+			{ currentPageRedux === 'Home'&&
+		  	   <WeatherPage></WeatherPage>
+			}
 		</Container>
 	);
 };
+const mapStateToProps = (state: IAppState) => {
+	return {
+		currentPageRedux: state.currentPage.currentPage
+	};
+};
 
-export default Home;
+const mapDispatchToProps = (dispatch: any) => {
+	return {
+		setCurrentPageRedux: (payload: string) => setCurrentPage(dispatch, payload)
+	};
+};
+export default connect(mapStateToProps, mapDispatchToProps)( Home);
