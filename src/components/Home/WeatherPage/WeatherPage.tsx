@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import {Container,SearchInputContainer,SearchInput,IconSearch} from "./WeatherPage.styles";
+import React, { useState , useEffect } from "react";
+import {Container} from "./WeatherPage.styles";
 import Images from "../../../assets/images/images";
-import { pageWeatherText } from "../../../consts/text.const";
 import ResultSearch from "./ResultSearch/ResultSearch";
 import SearchWrapper from "../../Widgets/Search/SearchWrapper";
 interface WeatherPageProps {}
 
 const WeatherPage = ({}: WeatherPageProps) => {
   const [selectedSearchItem, setSelectedSearchItem] = useState(undefined);
+  // useEffect();
   return (
     <Container>
       <SearchWrapper
