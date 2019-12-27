@@ -5,7 +5,8 @@ import SearchResult from './SearchResult/SearchResult';
 import DataService from 'services/data.service';
 
 interface SearchWrapperProps {
-	selectedItem?: any;
+	selectedItem?: (any) => void;
+	setSelectedCity?: (any) => void;
 	textPlaceholder: string;
 	borderLabelText?: string;
 	image?: string;
@@ -20,6 +21,7 @@ const SearchWrapper = ({
 	setSelectedItem,
 	selectedItem,
 	rightImage,
+	setSelectedCity,
 }: SearchWrapperProps) => {
 
 	const [results, setResults] = useState([]);
@@ -44,7 +46,7 @@ const SearchWrapper = ({
 	};
 
 	const renderSearchResult = (object:{LocalizedName:string,KeyCity:string }, keyChange) => {
-		return <SearchResult result={object.LocalizedName} onChoose={keyChange} setSelectedItem={setSelectedItem} />;
+		return <SearchResult result={object} onChoose={keyChange} setSelectedItem={setSelectedItem} setSelectedCity={setSelectedCity} />;
 	};
 
 	return (

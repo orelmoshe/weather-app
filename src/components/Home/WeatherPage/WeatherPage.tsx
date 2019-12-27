@@ -10,6 +10,8 @@ interface WeatherPageProps {
 
 const WeatherPage = ({}: WeatherPageProps) => {
   const [selectedSearchItem, setSelectedSearchItem] = useState(undefined);
+  const [selectedCity, setSelectedCity] = useState({LocalizedName:'Tel Aviv',KeyCity:'215854' });
+  console.log(selectedCity)
   return (
     <Container>
       <SearchWrapper
@@ -17,6 +19,7 @@ const WeatherPage = ({}: WeatherPageProps) => {
         image={Images.search}
         rightImage = {Images.clear}
         setSelectedItem={setSelectedSearchItem}
+        setSelectedCity={setSelectedCity}
       />
       <ResultSearch />
     </Container>
