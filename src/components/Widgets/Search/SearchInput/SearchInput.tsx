@@ -46,6 +46,7 @@ const SearchInput = ({
 
 	const onKeyChange = key => {
 		setInputSearch(key);
+		console.log('key',key)
 		setIsComponentVisible(key !== '');
 	};
 	const onArrowClick = () => {

@@ -8,7 +8,8 @@ interface SearchWrapperProps {
 	selectedItem?: any;
 	textPlaceholder: string;
 	borderLabelText?: string;
-	image?: any;
+	image?: string;
+	rightImage?: string;
 	setSelectedItem?: (any) => void;
 }
 
@@ -18,6 +19,7 @@ const SearchWrapper = ({
 	image,
 	setSelectedItem,
 	selectedItem,
+	rightImage,
 }: SearchWrapperProps) => {
 
 	const [results, setResults] = useState([]);
@@ -33,7 +35,6 @@ const SearchWrapper = ({
 			        	listCitys.push(item.LocalizedName);
 			        });
 			setResults(listCitys);
-
 		} catch(e){
             console.log('Error from SearchWrapper component , failed get autocomplete data , Error:', e);
 		}
@@ -50,6 +51,7 @@ const SearchWrapper = ({
 			filterFunction={filterFunction}
 			renderComponent={renderSearchResult}
 			image={image}
+			rightImage = {rightImage}
 			textPlaceholder={textPlaceholder}
 			showDropDownArrow={true}
 			containerHeight='50px'

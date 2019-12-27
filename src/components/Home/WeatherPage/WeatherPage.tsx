@@ -15,6 +15,7 @@ const WeatherPage = ({}: WeatherPageProps) => {
       <SearchWrapper
         textPlaceholder="Enter City"
         image={Images.search}
+        rightImage = {Images.clear}
         setSelectedItem={setSelectedSearchItem}
       />
       <ResultSearch />
