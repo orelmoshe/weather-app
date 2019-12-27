@@ -6,15 +6,15 @@ import {pageHeaderResultText} from '../../../../../consts/text.const';
 
 interface HeaderResultProps {
     nameCity?:string;
-    degrees?:string;
+    degrees?:any;
     iconWeather?:string;
 }
 
-const HeaderResult = ({ }: HeaderResultProps) => {
+const HeaderResult = ({ nameCity,degrees}: HeaderResultProps) => {
 
 	return (
 		<Container>
-           <DetailCity nameCity='Tel Aviv' degrees='31' iconWeather={Images.sun} />
+           <DetailCity nameCity={nameCity} degrees={'31'} iconWeather={Images.sun} />
            <RightContainer>
                <Icon src={Images.Love_Heart}/>
                <ButtonFavorites>
