@@ -1,4 +1,4 @@
-import React, {useEffect } from "react";
+import React, {useEffect, useState } from "react";
 import { Container,TitleMiddle} from './ResultSearch.styles';
 import HeaderResult from './HeaderResult/HeaderResult';
 import DailyWeatherForecast from './DailyWeatherForecast/DailyWeatherForecast';
@@ -11,20 +11,22 @@ interface ResultSearchProps {
 }
 
 const ResultSearch = ({ currentCity}: ResultSearchProps) => {
-	const getTemperaturCity = async (KeyCity:string)=>{
+    const [temperatueState, setTemperatureState] = useState();
+	const getTemperaturCity = async (KeyCity:string) =>{
 		const ds = new DataService();
 		try {
 			const data = await ds.getTemperaturCurrentCity(KeyCity);
-			console.log(data)
 			const temperature = String(data[0].Temperature.Metric.Value);
-            return temperature;
+			setTemperatureState(temperature);
 		} catch(e){
             console.log('Error from ResultSearch component , failed get get Temperatur current city , Error:', e);
 		}
 	}
-	return (
+
+	useEffect(()=>{getTemperaturCity(currentCity.KeyCity)},[currentCity]);
+    return (
 		<Container>
-			<HeaderResult nameCity={currentCity.LocalizedName} degrees={getTemperaturCity(currentCity.KeyCity)}/>
+			<HeaderResult nameCity={currentCity.LocalizedName} degrees={temperatueState}/>
 		    <TitleMiddle>{pageResultSearchText.SCATTERED_CLOUDS}</TitleMiddle>
 			<DailyWeatherForecast/>
 		</Container>
