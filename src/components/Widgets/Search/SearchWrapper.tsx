@@ -1,11 +1,11 @@
-import * as React from 'react';
+import React, { useState , useEffect } from "react";
 import SearchInput from './SearchInput/SearchInput';
 import { filter } from 'lodash';
 import SearchResult from './SearchResult/SearchResult';
+import DataService from 'services/data.service';
 
 interface SearchWrapperProps {
 	selectedItem?: any;
-	dbInformation: any[];
 	textPlaceholder: string;
 	borderLabelText?: string;
 	image?: any;
@@ -13,20 +13,30 @@ interface SearchWrapperProps {
 }
 
 const SearchWrapper = ({
-	dbInformation,
 	textPlaceholder,
 	borderLabelText,
 	image,
 	setSelectedItem,
 	selectedItem,
 }: SearchWrapperProps) => {
-	const [results, setResults] = React.useState(dbInformation);
-	const filterFunction = search => {
+
+	const [results, setResults] = useState([]);
+	const filterFunction = async search => {
 		if (!search) {
-			setResults(dbInformation);
+			setResults([]);
 		}
-		const filterResult = filter(dbInformation, result => String(result).startsWith(search));
-		setResults(filterResult);
+		const ds = new DataService();
+		try {
+			const data = await ds.getAutoCompleteCitys(search);
+			const listCitys = Array();
+			data && data.map((item)=>{
+			        	listCitys.push(item.LocalizedName);
+			        });
+			setResults(listCitys);
+
+		} catch(e){
+            console.log('Error from SearchWrapper component , failed get autocomplete data , Error:', e);
+		}
 	};
 
 	const renderSearchResult = (object, keyChange) => {
