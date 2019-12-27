@@ -1,9 +1,12 @@
 export interface CurrentConditionsInterface {
-    currentCity:string,
+  currentCity: {
+    LocalizedName: string;
+    KeyCity: string;
+  };
 }
 
 const initialCurrentConditionsState: CurrentConditionsInterface = {
-    currentCity: 'Tel Aviv',
+  currentCity: { LocalizedName: "Tel Aviv", KeyCity: "215854" }
 };
 
 export default initialCurrentConditionsState;

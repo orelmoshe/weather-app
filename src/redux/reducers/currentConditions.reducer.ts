@@ -5,7 +5,11 @@ const CurrentConditionsReducer = (state: CurrentConditionsInterface = initialCur
 	if (action.type === T.SET_CURRENT_CONDITIONS) {
 		return {
 			...state,
-			currentCity: action.payload
+			currentCity: {
+				...state.currentCity,
+				LocalizedName: action.payload.LocalizedName,
+				KeyCity: action.payload.KeyCity
+			}
 		};
 	}
 	return state;
