@@ -10,11 +10,11 @@ interface HeaderResultProps {
     iconWeather?:string;
 }
 
-const HeaderResult = ({ nameCity,degrees}: HeaderResultProps) => {
+const HeaderResult = ({ nameCity,degrees,iconWeather}: HeaderResultProps) => {
 
 	return (
 		<Container>
-           <DetailCity nameCity={nameCity} degrees={degrees} iconWeather={Images.sun} />
+           <DetailCity nameCity={nameCity} degrees={degrees} iconWeather={iconWeather} />
            <RightContainer>
                <Icon src={Images.Love_Heart}/>
                <ButtonFavorites>

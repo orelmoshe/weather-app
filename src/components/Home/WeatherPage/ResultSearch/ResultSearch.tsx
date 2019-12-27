@@ -6,18 +6,20 @@ import {pageResultSearchText} from '../../../../consts/text.const';
 import { IAppState } from '../../../../redux/state/index';
 import { connect } from 'react-redux';
 import DataService from "services/data.service";
+import {getImgByWeather} from 'consts/util.const';
 interface ResultSearchProps {
 	currentCity:{LocalizedName:string,KeyCity:string }
 }
 
 const ResultSearch = ({ currentCity}: ResultSearchProps) => {
-    const [temperatueState, setTemperatureState] = useState();
+    const [situationState, setSituationeState] = useState({temperature:'' ,iconWeather:'' });
 	const getTemperaturCity = async (KeyCity:string) =>{
 		const ds = new DataService();
 		try {
 			const data = await ds.getTemperaturCurrentCity(KeyCity);
 			const temperature = String(data[0].Temperature.Metric.Value);
-			setTemperatureState(temperature);
+			const iconWeather = String(data[0].WeatherText);
+			setSituationeState({temperature:temperature,iconWeather:iconWeather});
 		} catch(e){
             console.log('Error from ResultSearch component , failed get get Temperatur current city , Error:', e);
 		}
@@ -26,7 +28,7 @@ const ResultSearch = ({ currentCity}: ResultSearchProps) => {
 	useEffect(()=>{getTemperaturCity(currentCity.KeyCity)},[currentCity]);
     return (
 		<Container>
-			<HeaderResult nameCity={currentCity.LocalizedName} degrees={temperatueState}/>
+			<HeaderResult nameCity={currentCity.LocalizedName} degrees={situationState.temperature} iconWeather={getImgByWeather(situationState.iconWeather)}/>
 		    <TitleMiddle>{pageResultSearchText.SCATTERED_CLOUDS}</TitleMiddle>
 			<DailyWeatherForecast/>
 		</Container>
