@@ -32,7 +32,10 @@ const SearchWrapper = ({
 			const data = await ds.getAutoCompleteCitys(search);
 			const listCitys = Array();
 			data && data.map((item)=>{
-			        	listCitys.push(item.LocalizedName);
+			        	listCitys.push({
+							LocalizedName:item.LocalizedName,
+							KeyCity:item.Key 
+						});
 			        });
 			setResults(listCitys);
 		} catch(e){
@@ -40,8 +43,8 @@ const SearchWrapper = ({
 		}
 	};
 
-	const renderSearchResult = (object, keyChange) => {
-		return <SearchResult result={object} onChoose={keyChange} setSelectedItem={setSelectedItem} />;
+	const renderSearchResult = (object:{LocalizedName:string,KeyCity:string }, keyChange) => {
+		return <SearchResult result={object.LocalizedName} onChoose={keyChange} setSelectedItem={setSelectedItem} />;
 	};
 
 	return (

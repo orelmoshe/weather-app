@@ -4,7 +4,7 @@ import Images from '../../../../assets/images/images';
 import useComponentVisible from '../../IsComponentVisible/IsComponentVisible';
 interface SearchInputProps {
 	selectedItem?: any;
-	results?: any[];
+	results?: {LocalizedName:string,KeyCity:string }[];
 	filterFunction: (inputSearch) => void;
 	renderComponent: (object, onKeyChange) => React.ReactNode;
 	onRightImageClick?: () => void;
@@ -46,8 +46,7 @@ const SearchInput = ({
 
 	const onKeyChange = key => {
 		setInputSearch(key);
-		console.log('key',key)
-		setIsComponentVisible(key !== '');
+		setIsComponentVisible( key !== '');
 	};
 	const onArrowClick = () => {
 		setIsComponentVisible(!isComponentVisible);
@@ -89,7 +88,7 @@ const SearchInput = ({
 			</MainContainer>
 			{displayList !== false && isComponentVisible && (
 				<SearchResults amountResults={results.length} displayList={displayList}>
-					{results.map((value, index) => {
+					{results.map((value:{LocalizedName:string,KeyCity:string }, index:number) => {
 						return (
 							<Row key={`SEARCH_${index}`} onClick={() => setIsComponentVisible(false)}>
 								{renderComponent(value, onKeyChange)}
