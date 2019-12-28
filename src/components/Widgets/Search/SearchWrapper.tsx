@@ -35,7 +35,7 @@ const SearchWrapper = ({
 			const listCitys = Array();
 			data && data.map((item)=>{
 			        	listCitys.push({
-							LocalizedName:`${item.LocalizedName} , ${item.Country.LocalizedName}`,
+							LocalizedName:`${item.LocalizedName}`,//, ${item.Country.LocalizedName}
 							KeyCity:item.Key 
 						});
 			        });
