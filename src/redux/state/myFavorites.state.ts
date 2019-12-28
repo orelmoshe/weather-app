@@ -1,5 +1,8 @@
 export interface MyFavoritesInterface {
-    myFavoritesCitys:string[],
+    myFavoritesCitys:{
+        LocalizedName: string;
+        KeyCity: string;
+      }[],
 }
 
 const initialMyFavoritesState: MyFavoritesInterface = {

@@ -37,7 +37,7 @@ const ResultSearch = ({ currentCity}: ResultSearchProps) => {
 	
     return (
 		<Container>
-			<HeaderResult nameCity={currentCity.LocalizedName} degrees={situationState.temperature} iconWeather={getImgByWeather(situationState.iconWeather)}/>
+			<HeaderResult nameCity={currentCity.LocalizedName} keyCity ={currentCity.KeyCity} degrees={situationState.temperature} iconWeather={getImgByWeather(situationState.iconWeather)}/>
 		    <TitleMiddle>{pageResultSearchText.SCATTERED_CLOUDS}</TitleMiddle>
 			<DailyWeatherForecast listWeatherDays={listWeatherDaysState}/>
 		</Container>

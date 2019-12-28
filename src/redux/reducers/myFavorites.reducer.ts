@@ -5,7 +5,7 @@ const MyFavoritesReducer = (state: MyFavoritesInterface = initialMyFavoritesStat
 	if (action.type === T.SET_MY_FAVOTITES) {
 		return {
 			...state,
-			myFavoritesCitys: action.payload
+			myFavoritesCitys: action.payload,
 		};
 	}
 	return state;
