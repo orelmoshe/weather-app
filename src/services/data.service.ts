@@ -1,8 +1,8 @@
 import AjaxService from './ajax.service';
 import _ from 'lodash';
-/*XGgsVXXQGkY6xcFFypdRUmVJHktvZarE */
+/*AGtT3X7NHATH97gYUwMC9Oj6cVn5sk8G */
 const prefix = 'http://dataservice.accuweather.com';
-const apikey = 'AGtT3X7NHATH97gYUwMC9Oj6cVn5sk8G';
+const apikey = 'XGgsVXXQGkY6xcFFypdRUmVJHktvZarE';
 const ApiRoutes = {
 	AUTOCOMPLETE_SEARCH: `${prefix}/locations/v1/cities/autocomplete`,
 	CURRENT_CONDITIONS:   `${prefix}/currentconditions/v1/`,
