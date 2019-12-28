@@ -5,6 +5,7 @@ import WeatherPage from './WeatherPage/WeatherPage';
 import { IAppState } from '../../redux/state/index';
 import { connect } from 'react-redux';
 import { setCurrentPage } from '../../redux/actions/route.action';
+import FavoritesPage from './FavoritesPage/FavoritesPage';
 interface HomeProps {
 	currentPageRedux: string;
 	setCurrentPageRedux: (payload: string) => void;
@@ -18,6 +19,9 @@ const Home = ({currentPageRedux,setCurrentPageRedux}: HomeProps) => {
 			<Header currentPage={currentPageRedux} setCurrentPage={setCurrentPageRedux} />
 			{ currentPageRedux === 'Home'&&
 		  	   <WeatherPage></WeatherPage>
+			}
+			{ currentPageRedux === 'Favorites'&&
+		  	   <FavoritesPage></FavoritesPage>
 			}
 		</Container>
 	);

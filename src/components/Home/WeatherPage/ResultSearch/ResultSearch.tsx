@@ -6,7 +6,7 @@ import {pageResultSearchText} from '../../../../consts/text.const';
 import { IAppState } from '../../../../redux/state/index';
 import { connect } from 'react-redux';
 import DataService from "services/data.service";
-import {getImgByWeather} from 'consts/util.const';
+import {getImgByWeather} from 'services/util.service';
 interface ResultSearchProps {
 	currentCity:{LocalizedName:string,KeyCity:string }
 }

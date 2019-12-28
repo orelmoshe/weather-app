@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Container} from './DailyWeatherForecast.styles';
 import Day from './Day/Day';
 import _ from 'lodash';
-import {getImgByWeather}  from '../../../../../consts/util.const';
+import {getImgByWeather}  from '../../../../../services/util.service';
 interface DailyWeatherForecastProps {
 	listWeatherDays: {temperature :string ,iconWeather:string }[];
 }

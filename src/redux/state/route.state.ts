@@ -3,7 +3,7 @@ export interface RouteInterface {
 }
 
 const initialRouteState: RouteInterface = {
-	currentPage: 'Home'
+	currentPage: 'Favorites'//Home
 };
 
 export default initialRouteState;
