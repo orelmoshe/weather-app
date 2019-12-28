@@ -11,9 +11,9 @@ const DailyWeatherForecast = ({listWeatherDays }: DailyWeatherForecastProps) => 
 	const arrayDays = ['Sun' , 'Mon', 'Tue' , 'Wed' , 'Thu'];
 	return (
 		<Container>
-           {arrayDays &&
-               _.map(arrayDays , (nameDay , index)=>{
-				return <Day key={`Day_${index}`} nameDay= {nameDay} degrees={'31'}  /> //iconWeather = {getImgByWeather(listWeatherDays[index].iconWeather)}
+           {listWeatherDays &&
+               listWeatherDays.map((item , index)=>{
+				return <Day key={`Day_${index}`} nameDay= {arrayDays[index]} degrees={item.temperature} iconWeather = {getImgByWeather(listWeatherDays[index].iconWeather)} />
 			   })
 		   }
 		</Container>

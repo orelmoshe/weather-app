@@ -5,14 +5,14 @@ import Images from '../../../../../../assets/images/images';
 interface DayProps {
 	nameDay: string;
 	degrees: string;
-	iconWeather?: string;
+	iconWeather: string;
 }
 
 const Day = ({nameDay,degrees,iconWeather }: DayProps) => {
 	return (
 		<Container>
 			<TextDay>{nameDay}</TextDay>
-			<Icon src={`${Images.sun}`}/>
+			<Icon src={`${iconWeather}`}/>
 			<Degrees>{degrees}°C</Degrees>
 		</Container>
 	);

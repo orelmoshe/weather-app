@@ -21,30 +21,18 @@ const ResultSearch = ({ currentCity}: ResultSearchProps) => {
 			const temperature = String(data[0].Temperature.Metric.Value);
 			const iconWeather = String(data[0].WeatherText);
 			setSituationeState({temperature:temperature,iconWeather:iconWeather});
+			const dataDays = await ds.getDailyForecasts(KeyCity);
+			const listWeatherDays = dataDays.DailyForecasts.map((item)=>{
+				return {temperature: String(Math.round((Number(item.Temperature.Minimum.Value) - 32) * 5 / 9)) ,iconWeather:item.Day.IconPhrase };
+				  });
+	    	setListWeatherDaysState(listWeatherDays);		
 		} catch(e){
             console.log('Error from ResultSearch component , failed get get Temperatur current city , Error:', e);
 		}
 	}
-	const getDaysWeather = async(KeyCity:string)=>{
-		const ds = new DataService();
-		try {
-			const data = await ds.getDailyForecasts(KeyCity);
-			const listWeatherDays = Array();
-			data && data.DailyForecasts.map((item)=>{
-				  listWeatherDays.push({temperature: String(Math.round((Number(item.Temperature.Minimum.Value) - 32) * 5 / 9)) ,iconWeather:item.Day.IconPhrase });
-					});
-		   setListWeatherDaysState(listWeatherDays)
-			//setListWeatherDaysState([...listWeatherDaysState ,{temperature: String(Math.round((Number(item.Temperature.Minimum.Value) - 32) * 5 / 9)) ,iconWeather:item.Day.IconPhrase }])
-			console.log(listWeatherDaysState)
-		} catch(e){
-            console.log('Error from ResultSearch component , failed get weather 5 days data , Error:', e);
-		}
-    }
 
 	useEffect(()=>{
 		getTemperaturCity(currentCity.KeyCity);
-		getDaysWeather(currentCity.KeyCity);
-		setListWeatherDaysState(listWeatherDaysState);
 	},[currentCity]);
 	
     return (
