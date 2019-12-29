@@ -27,13 +27,13 @@ export default class AjaxService {
 		}
 		// tslint:disable-next-line: no-console
 		console.error('Error: ', err);
-	}
+	};
 
 	defaultOnSuccess = response => {
 		// tslint:disable-next-line: no-console
 		console.log('response ?', response);
 		return response;
-	}
+	};
 
 	get = async (route, params, onSuccess, onError) => {
 		if (!onSuccess) {
@@ -48,7 +48,7 @@ export default class AjaxService {
 		} catch (error) {
 			onError(error);
 		}
-	}
+	};
 
 	post = async (route, params, onSuccess, onError) => {
 		if (!onSuccess) {
@@ -58,7 +58,7 @@ export default class AjaxService {
 			onError = this.defaultOnError;
 		}
 		const options = {
-			headers: { 'Content-Type': 'application/json' },
+			headers: { 'Content-Type': 'application/json' }
 		};
 		try {
 			const response = await axios.post(route, params, options || {});
@@ -66,5 +66,5 @@ export default class AjaxService {
 		} catch (error) {
 			onError(error);
 		}
-	}
+	};
 }

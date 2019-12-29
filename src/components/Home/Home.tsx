@@ -11,18 +11,12 @@ interface HomeProps {
 	setCurrentPageRedux: (payload: string) => void;
 }
 
-const Home = ({currentPageRedux,setCurrentPageRedux}: HomeProps) => {
-
-
+const Home = ({ currentPageRedux, setCurrentPageRedux }: HomeProps) => {
 	return (
 		<Container>
 			<Header currentPage={currentPageRedux} setCurrentPage={setCurrentPageRedux} />
-			{ currentPageRedux === 'Home'&&
-		  	   <WeatherPage></WeatherPage>
-			}
-			{ currentPageRedux === 'Favorites' &&
-		  	   <FavoritesPage />
-			}
+			{currentPageRedux === 'Home' && <WeatherPage />}
+			{currentPageRedux === 'Favorites' && <FavoritesPage />}
 		</Container>
 	);
 };
@@ -37,4 +31,4 @@ const mapDispatchToProps = (dispatch: any) => {
 		setCurrentPageRedux: (payload: string) => setCurrentPage(dispatch, payload)
 	};
 };
-export default connect(mapStateToProps, mapDispatchToProps)( Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,10 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import {InputContainer,SearchImage,SearchResults,Row,Container,MainContainer,DropDownArrow,BorderLabel,Inside,CancelIcon,} from './SearchInput.styles';
+import {
+	InputContainer,
+	SearchImage,
+	SearchResults,
+	Row,
+	Container,
+	MainContainer,
+	DropDownArrow,
+	BorderLabel,
+	Inside,
+	CancelIcon
+} from './SearchInput.styles';
 import Images from 'assets/images/images';
 import useComponentVisible from '../../IsComponentVisible/IsComponentVisible';
 interface SearchInputProps {
 	selectedItem?: any;
-	results?: {LocalizedName:string,KeyCity:string }[];
+	results?: { LocalizedName: string; KeyCity: string }[];
 	filterFunction: (inputSearch) => void;
 	renderComponent: (object, onKeyChange) => React.ReactNode;
 	onRightImageClick?: () => void;
@@ -35,7 +46,7 @@ const SearchInput = ({
 	displayList,
 	rightImage,
 	hideBorder,
-	onRightImageClick,
+	onRightImageClick
 }: SearchInputProps) => {
 	const [inputSearch, setInputSearch] = useState(selectedItem || '');
 	const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
@@ -46,7 +57,7 @@ const SearchInput = ({
 
 	const onKeyChange = key => {
 		setInputSearch(key);
-		setIsComponentVisible( key !== '');
+		setIsComponentVisible(key !== '');
 	};
 	const onArrowClick = () => {
 		setIsComponentVisible(!isComponentVisible);
@@ -88,11 +99,11 @@ const SearchInput = ({
 			</MainContainer>
 			{displayList !== false && isComponentVisible && (
 				<SearchResults amountResults={results.length} displayList={displayList}>
-					{results.map((value:{LocalizedName:string,KeyCity:string }, index:number) => 
-							<Row key={`SEARCH_${index}`} onClick={() => setIsComponentVisible(false)}>
-								{renderComponent(value, onKeyChange)}
-							</Row>
-					)}
+					{results.map((value: { LocalizedName: string; KeyCity: string }, index: number) => (
+						<Row key={`SEARCH_${index}`} onClick={() => setIsComponentVisible(false)}>
+							{renderComponent(value, onKeyChange)}
+						</Row>
+					))}
 				</SearchResults>
 			)}
 		</Container>

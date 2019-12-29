@@ -1,15 +1,14 @@
 export interface MyFavoritesInterface {
-    favoriteCities:{
-        LocalizedName: string;
-        KeyCity: string;
-        temperature:string,
-        iconWeather:string
-      }[],
-
+	favoriteCities: {
+		LocalizedName: string;
+		KeyCity: string;
+		temperature: string;
+		iconWeather: string;
+	}[];
 }
 
 const favoriteCitiesInitialState: MyFavoritesInterface = {
-    favoriteCities: [],
+	favoriteCities: []
 };
 
 export default favoriteCitiesInitialState;
