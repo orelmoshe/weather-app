@@ -4,13 +4,16 @@ import InformationWeatherItem from '../../Widgets/InformationWeatherItem/Informa
 import {getFavoriteCitysDetails} from 'services/util.service';
 import { IAppState } from 'redux/state/index';
 import { connect } from 'react-redux';
-import { setMyFavorites } from 'redux/actions/myFavorites.actions';
+import { setCurrentPage } from 'redux/actions/route.action';
+import { setCurrentConditions } from "redux/actions/currentConditions.actions";
 interface FavoritesPageProps {
     myFavoritesCitysRedux:  {LocalizedName:string,KeyCity:string}[];
-	setMyFavoritesCitysRedux: (payload: {LocalizedName:string,KeyCity:string}[]) => void;
+   setCurrentConditions: (payload: {LocalizedName: string; KeyCity: string;}) => void;
+   setCurrentPageRedux: (payload: string) => void;
+
 }
 
-const FavoritesPage = ({myFavoritesCitysRedux}: FavoritesPageProps) => {
+const FavoritesPage = ({myFavoritesCitysRedux,setCurrentConditions,setCurrentPageRedux}: FavoritesPageProps) => {
 	const [ myFavoritesCityState, setMyFavoritesCitysState] = useState([]);
    useEffect(()=>{
 	myFavoritesCitysRedux &&
@@ -18,19 +21,25 @@ const FavoritesPage = ({myFavoritesCitysRedux}: FavoritesPageProps) => {
 		setMyFavoritesCitysState(res);
 	})
    },[]);
+
+   const clickedItemFavorite = (name,KeyCity)=>{
+      setCurrentConditions({LocalizedName:name ,KeyCity:KeyCity});
+      setCurrentPageRedux('Home');
+   }
 	return (
 		<Container>
             { myFavoritesCitysRedux &&
                myFavoritesCityState.map((item,index)=>{
-                  console.log('item',item)
                    return <InformationWeatherItem 
                                 key={`InformationWeatherItem_${index}`}
                                 name={item.LocalizedName}
+                                KeyCity={item.KeyCity}
                                 degrees={'item.temperature'}
                                 textWeather={'item.iconWeather'}
                                 width='190px'
                                 height='250px'
                                 checked={true}
+                                clickedItemFavorite={clickedItemFavorite}
                          />
                })
             }
@@ -45,6 +54,8 @@ const mapStateToProps = (state: IAppState) => {
 
 const mapDispatchToProps = (dispatch: any) => {
 	return {
-        setMyFavoritesCitysRedux: (payload: {LocalizedName:string,KeyCity:string}[]) => setMyFavorites(dispatch, payload)	};
+        setCurrentConditions: (payload: {LocalizedName: string;KeyCity: string;}) => setCurrentConditions(dispatch, payload),
+        setCurrentPageRedux: (payload: string) => setCurrentPage(dispatch, payload)
+   }
 };
 export default connect(mapStateToProps, mapDispatchToProps)( FavoritesPage);

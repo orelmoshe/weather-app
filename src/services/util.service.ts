@@ -55,6 +55,7 @@ export const getFavoriteCitysDetails = async (listCitys: {LocalizedName:string,K
       const iconWeather = String(data[0].WeatherText);
       result.push({
             LocalizedName:`${item.LocalizedName}`,
+            KeyCity: item.KeyCity,
             temperature:temperature,
             iconWeather:iconWeather
           });

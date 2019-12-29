@@ -9,11 +9,13 @@ interface DayProps {
   width: string;
   height: string;
   checked?: boolean;
+  KeyCity?:string;
+  clickedItemFavorite?:(name:string,KeyCity:string)=>void;
 }
 
-const InformationWeatherItem = ({name,degrees,textWeather,iconWeather,width,height,checked}: DayProps) => {
+const InformationWeatherItem = ({name,degrees,textWeather,iconWeather,width,height,checked,KeyCity,clickedItemFavorite}: DayProps) => {
   return (
-    <Container width={width} height={height} checked={checked}>
+    <Container width={width} height={height} checked={checked} onClick={()=>checked && clickedItemFavorite(name,KeyCity)}>
       <Title>{name}</Title>
       {iconWeather && <Icon src={`${iconWeather}`} />}
       {textWeather && <TextWeather>{textWeather}</TextWeather>}
