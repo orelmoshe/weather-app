@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container} from './FavoritesPage.styles';
 import InformationWeatherItem from '../../Widgets/InformationWeatherItem/InformationWeatherItem';
 import {getFavoriteCitysDetails} from 'services/util.service';
-import { IAppState } from '../../../redux/state/index';
+import { IAppState } from 'redux/state/index';
 import { connect } from 'react-redux';
 import { setMyFavorites } from 'redux/actions/myFavorites.actions';
 interface FavoritesPageProps {

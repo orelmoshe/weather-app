@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Container,ContainerMiddle,Text,NavigationContainer,Button,TextButton} from './Header.styles';
-import {pageHeaderText} from '../../../consts/text.const';
+import {pageHeaderText} from 'consts/text.const';
 
 interface HeaderProps {
 	currentPage:string;

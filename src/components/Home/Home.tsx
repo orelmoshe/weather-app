@@ -2,9 +2,9 @@ import * as React from 'react';
 import { Container } from './Home.styles';
 import Header from './Header/Header';
 import WeatherPage from './WeatherPage/WeatherPage';
-import { IAppState } from '../../redux/state/index';
+import { IAppState } from 'redux/state/index';
 import { connect } from 'react-redux';
-import { setCurrentPage } from '../../redux/actions/route.action';
+import { setCurrentPage } from 'redux/actions/route.action';
 import FavoritesPage from './FavoritesPage/FavoritesPage';
 interface HomeProps {
 	currentPageRedux: string;

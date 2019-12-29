@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Container ,RightContainer,Icon,ButtonFavorites,Text} from './HeaderResult.styles';
 import DetailCity from './DetailCity/DetailCity';
-import Images from '../../../../../assets/images/images';
-import {pageHeaderResultText} from '../../../../../consts/text.const';
-import { IAppState } from '../../../../../redux/state/index';
+import Images from 'assets/images/images';
+import {pageHeaderResultText} from 'consts/text.const';
+import { IAppState } from 'redux/state/index';
 import { connect } from 'react-redux';
-import { setMyFavorites } from '../../../../../redux/actions/myFavorites.actions';
+import { setMyFavorites } from 'redux/actions/myFavorites.actions';
 import _ from "lodash";
 interface HeaderResultProps {
     nameCity?:string;

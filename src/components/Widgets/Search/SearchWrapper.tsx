@@ -1,8 +1,6 @@
-import React, { useState , useEffect } from "react";
+import React, { useState } from "react";
 import SearchInput from './SearchInput/SearchInput';
-import { filter } from 'lodash';
 import SearchResult from './SearchResult/SearchResult';
-import DataService from 'services/data.service';
 import { getAutoCompleteCitys } from "services/util.service";
 
 interface SearchWrapperProps {

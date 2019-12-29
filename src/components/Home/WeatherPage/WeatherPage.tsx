@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Container } from "./WeatherPage.styles";
-import Images from "../../../assets/images/images";
+import Images from "assets/images/images";
 import ResultSearch from "./ResultSearch/ResultSearch";
 import SearchWrapper from "../../Widgets/Search/SearchWrapper";
-import { IAppState } from "../../../redux/state/index";
+import { IAppState } from "redux/state/index";
 import { connect } from "react-redux";
 import { setCurrentConditions } from "redux/actions/currentConditions.actions";
 interface WeatherPageProps {

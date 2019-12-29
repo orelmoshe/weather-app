@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {InputContainer,SearchImage,SearchResults,Row,Container,MainContainer,DropDownArrow,BorderLabel,Inside,CancelIcon,} from './SearchInput.styles';
-import Images from '../../../../assets/images/images';
+import Images from 'assets/images/images';
 import useComponentVisible from '../../IsComponentVisible/IsComponentVisible';
 interface SearchInputProps {
 	selectedItem?: any;

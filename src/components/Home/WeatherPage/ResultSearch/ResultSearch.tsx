@@ -2,10 +2,9 @@ import React, {useEffect, useState } from "react";
 import { Container,TitleMiddle} from './ResultSearch.styles';
 import HeaderResult from './HeaderResult/HeaderResult';
 import DailyWeatherForecast from './DailyWeatherForecast/DailyWeatherForecast';
-import {pageResultSearchText} from '../../../../consts/text.const';
-import { IAppState } from '../../../../redux/state/index';
+import {pageResultSearchText} from 'consts/text.const';
+import { IAppState } from 'redux/state/index';
 import { connect } from 'react-redux';
-import DataService from "services/data.service";
 import {getImgByWeather,getTemperaturCity} from 'services/util.service';
 interface ResultSearchProps {
 	currentCity:{LocalizedName:string,KeyCity:string }

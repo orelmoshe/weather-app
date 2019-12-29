@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Container} from './DailyWeatherForecast.styles';
 import InformationWeatherItem from 'components/Widgets/InformationWeatherItem/InformationWeatherItem';
-import {getImgByWeather}  from '../../../../../services/util.service';
+import {getImgByWeather}  from 'services/util.service';
 import _ from 'lodash';
 interface DailyWeatherForecastProps {
 	listWeatherDays: {temperature :string ,iconWeather:string }[];
