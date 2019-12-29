@@ -8,11 +8,12 @@ interface DayProps {
   iconWeather?: string;
   width: string;
   height: string;
+  checked?: boolean;
 }
 
-const InformationWeatherItem = ({name,degrees,textWeather,iconWeather,width,height}: DayProps) => {
+const InformationWeatherItem = ({name,degrees,textWeather,iconWeather,width,height,checked}: DayProps) => {
   return (
-    <Container width={width} height={height}>
+    <Container width={width} height={height} checked={checked}>
       <Title>{name}</Title>
       {iconWeather && <Icon src={`${iconWeather}`} />}
       {textWeather && <TextWeather>{textWeather}</TextWeather>}

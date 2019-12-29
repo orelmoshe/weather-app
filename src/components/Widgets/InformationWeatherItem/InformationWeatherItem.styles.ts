@@ -2,6 +2,7 @@ import styled from "styled-components";
 interface ContainerProps {
   width: string;
   height: string;
+  checked?:boolean
 }
 export const Container = styled.div<ContainerProps>`
   height: ${props =>props.height};
@@ -15,10 +16,15 @@ export const Container = styled.div<ContainerProps>`
   border: 1px solid rgba(53, 66, 84, 0.12);
   box-sizing: border-box;
   margin:10px;
-  cursor: pointer;
-  &:hover{
-    box-shadow: 0 2px 10px 2px black;
-  }
+	${({ checked }) =>
+		checked &&
+		`
+    cursor: pointer;
+    &:hover{
+      box-shadow: 0 2px 10px 2px black;
+    }
+		`}
+ 
 `;
 
 export const Title = styled.div`

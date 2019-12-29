@@ -53,6 +53,7 @@ const FavoritesPage = ({myFavoritesCitysRedux}: FavoritesPageProps) => {
                                 textWeather={item.iconWeather}
                                 width='190px'
                                 height='250px'
+                                checked={true}
                          />
                })
             }
