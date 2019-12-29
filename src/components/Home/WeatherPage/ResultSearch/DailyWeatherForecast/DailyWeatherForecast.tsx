@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Container} from './DailyWeatherForecast.styles';
+import InformationWeatherItem from 'components/Widgets/InformationWeatherItem/InformationWeatherItem';
 import Day from './Day/Day';
-import _ from 'lodash';
 import {getImgByWeather}  from '../../../../../services/util.service';
+import _ from 'lodash';
 interface DailyWeatherForecastProps {
 	listWeatherDays: {temperature :string ,iconWeather:string }[];
 }
@@ -13,7 +14,7 @@ const DailyWeatherForecast = ({listWeatherDays }: DailyWeatherForecastProps) => 
 		<Container>
            {listWeatherDays &&
                listWeatherDays.map((item , index)=>{
-				return <Day key={`Day_${index}`} nameDay= {arrayDays[index]} degrees={item.temperature} iconWeather = {getImgByWeather(listWeatherDays[index].iconWeather)} />
+				return <InformationWeatherItem key={`Day_${index}`} name= {arrayDays[index]} degrees={item.temperature} iconWeather = {getImgByWeather(listWeatherDays[index].iconWeather)} width='150px' height='170px' />
 			   })
 		   }
 		</Container>
