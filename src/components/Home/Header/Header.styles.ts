@@ -12,7 +12,6 @@ export const Container = styled.div`
 `;
 
 export const Text = styled.div`
-  height: 23px;
   width: fit-content;
   color: #015369;
   font-family: Poppins;

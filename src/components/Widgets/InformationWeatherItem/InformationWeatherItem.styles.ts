@@ -14,6 +14,11 @@ export const Container = styled.div<ContainerProps>`
   padding: 10px 0;
   border: 1px solid rgba(53, 66, 84, 0.12);
   box-sizing: border-box;
+  margin:10px;
+  cursor: pointer;
+  &:hover{
+    box-shadow: 0 2px 10px 2px black;
+  }
 `;
 
 export const Title = styled.div`

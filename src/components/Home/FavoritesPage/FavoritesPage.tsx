@@ -13,6 +13,29 @@ interface FavoritesPageProps {
 const FavoritesPage = ({myFavoritesCitysRedux}: FavoritesPageProps) => {
 	const [ myFavoritesCityState, setMyFavoritesCitysState] = useState([])
    useEffect(()=>{
+      setMyFavoritesCitysState([{
+         LocalizedName: 'orel',
+         temperature:'31',
+         iconWeather: 'cloudy'
+      },
+      {
+         LocalizedName: 'orel',
+         temperature:'31',
+         iconWeather: 'cloudy'
+      },
+      {
+         LocalizedName: 'orel',
+         temperature:'31',
+         iconWeather: 'cloudy'
+      },{
+         LocalizedName: 'orel',
+         temperature:'31',
+         iconWeather: 'cloudy'
+      },{
+         LocalizedName: 'orel',
+         temperature:'31',
+         iconWeather: 'cloudy'
+      }]);
 	myFavoritesCitysRedux &&
 	getFavoriteCitysDetails(myFavoritesCitysRedux).then(res=>{
 		setMyFavoritesCitysState(res);
@@ -21,7 +44,7 @@ const FavoritesPage = ({myFavoritesCitysRedux}: FavoritesPageProps) => {
    },[]);
 	return (
 		<Container>
-            {myFavoritesCitysRedux &&
+            {myFavoritesCityState &&
                myFavoritesCityState.map((item,index)=>{
                    return <InformationWeatherItem 
                                 key={`InformationWeatherItem${index}`}

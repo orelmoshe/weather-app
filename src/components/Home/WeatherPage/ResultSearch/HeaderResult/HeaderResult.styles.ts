@@ -8,6 +8,10 @@ export const Container = styled.div`
   align-items: center;
   padding: 0 10px;
   box-sizing: border-box;
+  @media (max-width: 760px) {
+    height: fit-content;
+    flex-direction: column-reverse;
+  }
 `;
 
 export const RightContainer = styled.div`
@@ -16,6 +20,9 @@ export const RightContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 760px) {
+    margin-top: 10px;
+  }
 `;
 
 export const Icon = styled.img`
@@ -25,7 +32,7 @@ export const Icon = styled.img`
 
 export const ButtonFavorites = styled.div`
   height:30px;
-  width:160px;
+  width:130px;
   display: flex;
   justify-content: center;
   align-items: center;

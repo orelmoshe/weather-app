@@ -50,7 +50,6 @@ const SearchWrapper = ({
 			textPlaceholder={textPlaceholder}
 			showDropDownArrow={true}
 			containerHeight='50px'
-			containerWidth='812px'
 			hideBorder={false}
 		/>
 	);

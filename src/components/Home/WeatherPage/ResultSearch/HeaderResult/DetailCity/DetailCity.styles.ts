@@ -22,7 +22,7 @@ export const RightContainer = styled.div`
 `;
 
 export const NameCity = styled.div`
-  height: 28px;
+  height: fit-content;
   width: fit-content;
   color: #354254;
   font-family: Poppins;
@@ -30,6 +30,7 @@ export const NameCity = styled.div`
   font-weight: bold;
   letter-spacing: -0.08px;
   line-height: 30px;
+  
 `;
 
 export const Degrees = styled.div`
