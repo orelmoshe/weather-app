@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Container,Text,NavigationContainer,Button,TextButton} from './Header.styles';
+import { Container,ContainerMiddle,Text,NavigationContainer,Button,TextButton} from './Header.styles';
 import {pageHeaderText} from '../../../consts/text.const';
 
 interface HeaderProps {
@@ -13,6 +13,8 @@ const Header = ({setCurrentPage,currentPage}: HeaderProps) => {
 	}
 	return (
 		<Container>
+			<ContainerMiddle>
+
 			<Text>{pageHeaderText.HEROLO_WEATHER_TASK}</Text>
 			<NavigationContainer>
 				<Button onClick={()=>{changePage('Home')}} clicked={currentPage === 'Home'}>
@@ -22,6 +24,7 @@ const Header = ({setCurrentPage,currentPage}: HeaderProps) => {
 					<TextButton>{pageHeaderText.FAVORITES}</TextButton>
 				</Button>
 			</NavigationContainer>
+			</ContainerMiddle>
 		</Container>
 	);
 };

@@ -4,12 +4,20 @@ export const Container = styled.div`
   height: 70px;
   width: calc(100% - 10px - 10px);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 0 10px;
   background-color: #ffffff;
   box-shadow: 0 5px 5px 0 rgba(25, 148, 192, 0.05);
 `;
+
+export const ContainerMiddle = styled.div`
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 
 export const Text = styled.div`
   width: fit-content;
