@@ -6,6 +6,6 @@ import CurrentConditionsReducer from './currentConditions.reducer';
 
 export default combineReducers({
 	currentPage: routeReducer,
-	myFavoritesCitys:MyFavoritesReducer,
+	favorite:MyFavoritesReducer,
 	currentCity:CurrentConditionsReducer,
 });

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import SearchInput from './SearchInput/SearchInput';
 import SearchResult from './SearchResult/SearchResult';
-import { getAutoCompleteCitys } from "services/util.service";
+import {getAutoCompleteCities } from "services/util.service";
 
 interface SearchWrapperProps {
 	selectedItem?: (any) => void;
@@ -28,7 +28,7 @@ const SearchWrapper = ({
 		if (!search) {
 			setResults([]);
 		}
-		getAutoCompleteCitys(search).then(res => {
+		getAutoCompleteCities(search).then(res => {
 			setResults(res);
 		  });
 	};

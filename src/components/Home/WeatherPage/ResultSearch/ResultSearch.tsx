@@ -5,16 +5,16 @@ import DailyWeatherForecast from './DailyWeatherForecast/DailyWeatherForecast';
 import {pageResultSearchText} from 'consts/text.const';
 import { IAppState } from 'redux/state/index';
 import { connect } from 'react-redux';
-import {getImgByWeather,getTemperaturCity} from 'services/util.service';
+import {getImgByWeather,getTemperatureCity} from 'services/util.service';
 interface ResultSearchProps {
 	currentCity:{LocalizedName:string,KeyCity:string }
 }
 
 const ResultSearch = ({ currentCity}: ResultSearchProps) => {
-	const [situationState, setSituationeState] = useState({currentCityWeather:{temperature:'' ,iconWeather:'' },listWeatherDays:[]});
+	const [fullInfo, setFullInfo] = useState({currentCityWeather:{temperature:'' ,iconWeather:'' },listWeatherDays:[]});
 	useEffect(()=>{
-		getTemperaturCity(currentCity.KeyCity).then(res => {
-		  setSituationeState(res);
+		getTemperatureCity(currentCity.KeyCity).then(res => {
+			setFullInfo(res);
 		});	
 	},[currentCity]);
 	
@@ -23,11 +23,11 @@ const ResultSearch = ({ currentCity}: ResultSearchProps) => {
 			<HeaderResult 
 				nameCity={currentCity.LocalizedName} 
 				keyCity ={currentCity.KeyCity} 
-				degrees={situationState.currentCityWeather.temperature}
-				iconWeather={getImgByWeather(situationState.currentCityWeather.iconWeather)}
+				degrees={fullInfo.currentCityWeather.temperature}
+				iconWeather={getImgByWeather(fullInfo.currentCityWeather.iconWeather)}
 			 />
 		    <TitleMiddle>{pageResultSearchText.SCATTERED_CLOUDS}</TitleMiddle>
-			<DailyWeatherForecast listWeatherDays={situationState.listWeatherDays}/>
+			<DailyWeatherForecast listWeatherDays={fullInfo.listWeatherDays}/>
 		</Container>
 	);
 };

@@ -12,9 +12,9 @@ const DailyWeatherForecast = ({listWeatherDays }: DailyWeatherForecastProps) => 
 	return (
 		<Container>
            {listWeatherDays &&
-               listWeatherDays.map((item , index)=>{
-				return <InformationWeatherItem key={`Day_${index}`} name= {arrayDays[index]} degrees={item.temperature} iconWeather = {getImgByWeather(listWeatherDays[index].iconWeather)} width='150px' height='170px'  />
-			   })
+               listWeatherDays.map((item , index)=>
+				 <InformationWeatherItem key={`Day_${index}`} name= {arrayDays[index]} degrees={item.temperature} iconWeather = {getImgByWeather(listWeatherDays[index].iconWeather)} width='150px' height='170px'  />
+			   )
 		   }
 		</Container>
 	);

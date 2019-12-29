@@ -1,12 +1,15 @@
 export interface MyFavoritesInterface {
-    myFavoritesCitys:{
+    favoriteCities:{
         LocalizedName: string;
         KeyCity: string;
+        temperature:string,
+        iconWeather:string
       }[],
+
 }
 
-const initialMyFavoritesState: MyFavoritesInterface = {
-    myFavoritesCitys: null,
+const favoriteCitiesInitialState: MyFavoritesInterface = {
+    favoriteCities: [],
 };
 
-export default initialMyFavoritesState;
+export default favoriteCitiesInitialState;

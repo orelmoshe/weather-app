@@ -88,13 +88,11 @@ const SearchInput = ({
 			</MainContainer>
 			{displayList !== false && isComponentVisible && (
 				<SearchResults amountResults={results.length} displayList={displayList}>
-					{results.map((value:{LocalizedName:string,KeyCity:string }, index:number) => {
-						return (
+					{results.map((value:{LocalizedName:string,KeyCity:string }, index:number) => 
 							<Row key={`SEARCH_${index}`} onClick={() => setIsComponentVisible(false)}>
 								{renderComponent(value, onKeyChange)}
 							</Row>
-						);
-					})}
+					)}
 				</SearchResults>
 			)}
 		</Container>

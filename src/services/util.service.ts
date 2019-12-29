@@ -12,22 +12,22 @@ export const getImgByWeather = nameSituation => {
 };
 
 
-export const getAutoCompleteCitys = async (search) => {
+export const getAutoCompleteCities = async (search) => {
   const ds = new DataService();
-    const data = await ds.getAutoCompleteCitys(search);
-    const listCitys = new Array();
+    const data = await ds.getAutoCompleteCities(search);
+    const listCities = new Array();
     data && data.map((item)=>{
-              listCitys.push({
+              listCities.push({
             LocalizedName:`${item.LocalizedName}`,//, ${item.Country.LocalizedName}
             KeyCity:item.Key 
           });
     });
-return listCitys;
+return listCities;
 };
 
-export const getTemperaturCity = async (KeyCity:string) =>{
+export const getTemperatureCity = async (KeyCity:string) =>{
   const ds = new DataService();
-    const data = await ds.getTemperaturCurrentCity(KeyCity);
+    const data = await ds.getTemperatureCurrentCity(KeyCity);
     const temperature = String(data[0].Temperature.Metric.Value);
     const iconWeather = String(data[0].WeatherText);
  
@@ -46,11 +46,11 @@ export const getTemperaturCity = async (KeyCity:string) =>{
 }
 
 
-export const getFavoriteCitysDetails = async (listCitys: {LocalizedName:string,KeyCity:string}[]) =>{
+export const getFavoriteCitiesDetails = async (listCities: any[]) =>{
     const ds = new DataService();
     const result = new Array();
-    listCitys.map(async (item)=>{
-      const data = await ds.getTemperaturCurrentCity(item.KeyCity);
+    listCities.map(async (item)=>{
+      const data = await ds.getTemperatureCurrentCity(item.KeyCity);
       const temperature = String(data[0].Temperature.Metric.Value);
       const iconWeather = String(data[0].WeatherText);
       result.push({

@@ -12,14 +12,24 @@ interface HeaderResultProps {
     keyCity?: string;
     degrees?:string;
     iconWeather?:string;
-    myFavoritesCitysRedux:  {LocalizedName:string,KeyCity:string}[];
-	setMyFavoritesCitysRedux: (payload: {LocalizedName:string,KeyCity:string}[]) => void;
+    myFavoriteCitiesRedux:  {
+        LocalizedName: string;
+        KeyCity: string;
+        temperature:string,
+        iconWeather:string
+      }[];
+	setMyFavoritesCitiesRedux: (payload: {
+        LocalizedName: string;
+        KeyCity: string;
+        temperature:string,
+        iconWeather:string
+      }[]) => void;
 }
 
-const HeaderResult = ({ nameCity,keyCity,degrees,iconWeather,myFavoritesCitysRedux,setMyFavoritesCitysRedux}: HeaderResultProps) => {
+const HeaderResult = ({ nameCity,keyCity,degrees,iconWeather, myFavoriteCitiesRedux ,setMyFavoritesCitiesRedux}: HeaderResultProps) => {
     const [imageState, setImageState] = useState(false);
     const choosePicture = ()=>{
-        if(myFavoritesCitysRedux && !isCityNotExistsInMyFavorites(nameCity)) return Images.Love_Heart;
+        if(myFavoriteCitiesRedux && !isCityNotExistsInMyFavorites(nameCity)) return Images.Love_Heart;
         if(imageState){
             return Images.Love_Heart;
         } else {
@@ -29,30 +39,30 @@ const HeaderResult = ({ nameCity,keyCity,degrees,iconWeather,myFavoritesCitysRed
     const addLocationFavorite = ()=>{
       setImageState(!imageState);
       if(!imageState){
-            addCityToMyFavoritesCitys(nameCity,keyCity);   
+            addCityToMyFavoritesCities(nameCity,keyCity);   
       } else{
-          removeCityToMyFavoritesCitys(nameCity,keyCity);   
+          removeFromFavorites(nameCity,keyCity);   
       }
     }
 
-    const addCityToMyFavoritesCitys = (name,key)=>{
-            const listFavoriteNew = myFavoritesCitysRedux? myFavoritesCitysRedux.map((item)=>{return item;}): [];
+    const addCityToMyFavoritesCities = (name,key)=>{
+            const listFavoriteNew = myFavoriteCitiesRedux? [...myFavoriteCitiesRedux]: [];
             if(isCityNotExistsInMyFavorites(name)){
-                listFavoriteNew.push({LocalizedName:name,KeyCity:key})
-                setMyFavoritesCitysRedux(listFavoriteNew);
+                listFavoriteNew.push({LocalizedName:name,KeyCity:key, temperature:degrees ,iconWeather:iconWeather})
+                setMyFavoritesCitiesRedux(listFavoriteNew);
             }
     }
     
-    const removeCityToMyFavoritesCitys = (name,key)=>{
-        const listFavoritesCity = myFavoritesCitysRedux? myFavoritesCitysRedux.map((item)=>{return item;}): [];
+    const removeFromFavorites = (name,key)=>{
+        const listFavoritesCity = myFavoriteCitiesRedux?  [...myFavoriteCitiesRedux]: [];
         _.remove(listFavoritesCity ,(item)=>{
             return item.LocalizedName===name && item.KeyCity===key;
         });
-        setMyFavoritesCitysRedux(listFavoritesCity);
+        setMyFavoritesCitiesRedux(listFavoritesCity);
     }
 
     const isCityNotExistsInMyFavorites = (name)=>{
-      return  !_.some(myFavoritesCitysRedux, item => item.LocalizedName === name);
+      return  !_.some(myFavoriteCitiesRedux, item => item.LocalizedName === name);
     }
 	return (
 		<Container>
@@ -69,13 +79,18 @@ const HeaderResult = ({ nameCity,keyCity,degrees,iconWeather,myFavoritesCitysRed
 
 const mapStateToProps = (state: IAppState) => {
 	return {
-		myFavoritesCitysRedux: state.myFavoritesCitys.myFavoritesCitys
+		myFavoriteCitiesRedux: state.favorite.favoriteCities
 	};
 };
 
 const mapDispatchToProps = (dispatch: any) => {
 	return {
-		setMyFavoritesCitysRedux: (payload: {LocalizedName:string,KeyCity:string}[]) => setMyFavorites(dispatch, payload)
+		setMyFavoritesCitiesRedux: (payload:{
+            LocalizedName: string;
+            KeyCity: string;
+            temperature:string,
+            iconWeather:string
+          }[]) => setMyFavorites(dispatch, payload)
 	};
 };
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderResult);

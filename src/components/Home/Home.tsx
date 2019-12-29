@@ -20,8 +20,8 @@ const Home = ({currentPageRedux,setCurrentPageRedux}: HomeProps) => {
 			{ currentPageRedux === 'Home'&&
 		  	   <WeatherPage></WeatherPage>
 			}
-			{ currentPageRedux === 'Favorites'&&
-		  	   <FavoritesPage></FavoritesPage>
+			{ currentPageRedux === 'Favorites' &&
+		  	   <FavoritesPage />
 			}
 		</Container>
 	);
