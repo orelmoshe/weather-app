@@ -1,47 +1,38 @@
-import * as React from 'react';
+import React, { useState, useEffect } from "react";
 import { Container} from './FavoritesPage.styles';
+import InformationWeatherItem from '../../Widgets/InformationWeatherItem/InformationWeatherItem';
+import {getFavoriteCitysDetails} from 'services/util.service';
 import { IAppState } from '../../../redux/state/index';
 import { connect } from 'react-redux';
 import { setMyFavorites } from 'redux/actions/myFavorites.actions';
-import InformationWeatherItem from '../../Widgets/InformationWeatherItem/InformationWeatherItem';
-import DataService from 'services/data.service';
-import { useState } from 'react';
 interface FavoritesPageProps {
     myFavoritesCitysRedux:  {LocalizedName:string,KeyCity:string}[];
 	setMyFavoritesCitysRedux: (payload: {LocalizedName:string,KeyCity:string}[]) => void;
 }
 
 const FavoritesPage = ({myFavoritesCitysRedux}: FavoritesPageProps) => {
-    const [situationState, setSituationeState] = useState({temperature:'' ,iconWeather:'' });
-	const getTemperaturCity = async (KeyCity:string) =>{
-		const ds = new DataService();
-		try { 
-			const data = await ds.getTemperaturCurrentCity(KeyCity);
-			const temperature = String(data[0].Temperature.Metric.Value);
-			const iconWeather = String(data[0].WeatherText);
-			setSituationeState({temperature:temperature,iconWeather:iconWeather});		
-		} catch(e){
-            console.log('Error from ResultSearch component , failed get get Temperatur current city , Error:', e);
-		}
-	}
-
-	
+	const [ myFavoritesCityState, setMyFavoritesCitysState] = useState([])
+   useEffect(()=>{
+	myFavoritesCitysRedux &&
+	getFavoriteCitysDetails(myFavoritesCitysRedux).then(res=>{
+		setMyFavoritesCitysState(res);
+		console.log('dd', myFavoritesCityState)
+	})
+   },[]);
 	return (
 		<Container>
             {myFavoritesCitysRedux &&
-               myFavoritesCitysRedux.map((item,index)=>{
-                   getTemperaturCity(item.KeyCity);
+               myFavoritesCityState.map((item,index)=>{
                    return <InformationWeatherItem 
                                 key={`InformationWeatherItem${index}`}
                                 name={item.LocalizedName}
-                                degrees={situationState.temperature}
-                                textWeather={situationState.iconWeather}
+                                degrees={item.temperature}
+                                textWeather={item.iconWeather}
                                 width='190px'
                                 height='250px'
                          />
                })
             }
-          
 		</Container>
 	);
 };

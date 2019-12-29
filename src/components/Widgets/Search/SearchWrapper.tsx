@@ -3,6 +3,7 @@ import SearchInput from './SearchInput/SearchInput';
 import { filter } from 'lodash';
 import SearchResult from './SearchResult/SearchResult';
 import DataService from 'services/data.service';
+import { getAutoCompleteCitys } from "services/util.service";
 
 interface SearchWrapperProps {
 	selectedItem?: (any) => void;
@@ -29,20 +30,9 @@ const SearchWrapper = ({
 		if (!search) {
 			setResults([]);
 		}
-		const ds = new DataService();
-		try {
-			const data = await ds.getAutoCompleteCitys(search);
-			const listCitys = Array();
-			data && data.map((item)=>{
-			        	listCitys.push({
-							LocalizedName:`${item.LocalizedName}`,//, ${item.Country.LocalizedName}
-							KeyCity:item.Key 
-						});
-			        });
-			setResults(listCitys);
-		} catch(e){
-            console.log('Error from SearchWrapper component , failed get autocomplete data , Error:', e);
-		}
+		getAutoCompleteCitys(search).then(res => {
+			setResults(res);
+		  });
 	};
 
 	const renderSearchResult = (object:{LocalizedName:string,KeyCity:string }, keyChange) => {
