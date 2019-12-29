@@ -15,7 +15,7 @@ const DailyWeatherForecast = ({ listWeatherDays }: DailyWeatherForecastProps) =>
 					<InformationWeatherItem
 						key={`Day_${index}`}
 						name={arrayDays[index]}
-						degrees={item.temperature}
+						temperature={item.temperature}
 						iconWeather={getImgByWeather(listWeatherDays[index].iconWeather)}
 						width="150px"
 						height="170px"

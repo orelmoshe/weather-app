@@ -1,5 +1,5 @@
 import AjaxService from './ajax.service';
-import _ from 'lodash'; /*3EJpKcLSBzrz4AQxGQlD6eAs3I71x29s */ /*sfMnWo3qvk3juneOb76NeuLw5yQIXkwD */ /*XGgsVXXQGkY6xcFFypdRUmVJHktvZarE - mekory */
+import _ from 'lodash'; /*sfMnWo3qvk3juneOb76NeuLw5yQIXkwD */ /*XGgsVXXQGkY6xcFFypdRUmVJHktvZarE - mekory */ /*3EJpKcLSBzrz4AQxGQlD6eAs3I71x29s */
 /*AGtT3X7NHATH97gYUwMC9Oj6cVn5sk8G */ const prefix = 'http://dataservice.accuweather.com';
 const apikey = 'AGtT3X7NHATH97gYUwMC9Oj6cVn5sk8G';
 const ApiRoutes = {

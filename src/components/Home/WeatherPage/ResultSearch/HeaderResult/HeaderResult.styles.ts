@@ -39,9 +39,10 @@ export const ButtonFavorites = styled.div`
   background-color: #69e781;
   border: none;
   border-radius: 3px;
+  opacity:0.3;
   cursor: pointer;
   &:hover{
-      opacity:0.3;
+    opacity:1; 
   }
 `;
 

@@ -10,7 +10,7 @@ import _ from 'lodash';
 interface HeaderResultProps {
 	nameCity?: string;
 	keyCity?: string;
-	degrees?: string;
+	temperature?: string;
 	iconWeather?: string;
 	myFavoriteCitiesRedux: {
 		LocalizedName: string;
@@ -31,7 +31,7 @@ interface HeaderResultProps {
 const HeaderResult = ({
 	nameCity,
 	keyCity,
-	degrees,
+	temperature,
 	iconWeather,
 	myFavoriteCitiesRedux,
 	setMyFavoritesCitiesRedux
@@ -47,19 +47,19 @@ const HeaderResult = ({
 	const addLocationFavorite = () => {
 		setImageState(!imageState);
 		if (!imageState) {
-			addCityToMyFavoritesCities(nameCity, keyCity);
+			addToFavorites(nameCity, keyCity);
 		} else {
 			removeFromFavorites(nameCity, keyCity);
 		}
 	};
 
-	const addCityToMyFavoritesCities = (name, key) => {
+	const addToFavorites = (name, key) => {
 		const listFavoriteNew = myFavoriteCitiesRedux ? [...myFavoriteCitiesRedux] : [];
 		if (ifExists(name)) {
 			listFavoriteNew.push({
 				LocalizedName: name,
 				KeyCity: key,
-				temperature: degrees,
+				temperature: temperature,
 				iconWeather: iconWeather
 			});
 			setMyFavoritesCitiesRedux(listFavoriteNew);
@@ -79,7 +79,7 @@ const HeaderResult = ({
 	};
 	return (
 		<Container>
-			<DetailCity nameCity={nameCity} degrees={degrees} iconWeather={iconWeather} />
+			<DetailCity nameCity={nameCity} temperature={temperature} iconWeather={iconWeather} />
 			<RightContainer>
 				<Icon src={choosePicture()} />
 				<ButtonFavorites onClick={addLocationFavorite}>

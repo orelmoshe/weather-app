@@ -40,8 +40,7 @@ const mapStateToProps = (state: IAppState) => {
 
 const mapDispatchToProps = (dispatch: any) => {
 	return {
-		setCurrentConditions: (payload: { LocalizedName: string; KeyCity: string }) =>
-			setCurrentConditions(dispatch, payload)
+		setCurrentConditions: (payload: { LocalizedName: string; KeyCity: string }) => setCurrentConditions(dispatch, payload)
 	};
 };
 

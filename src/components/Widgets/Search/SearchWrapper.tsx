@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import SearchInput from './SearchInput/SearchInput';
 import SearchResult from './SearchResult/SearchResult';
-import { getAutoCompleteCities } from 'services/util.service';
+import DataService from 'services/data.service';
 
 interface SearchWrapperProps {
 	selectedItem?: (any) => void;
@@ -28,6 +28,20 @@ const SearchWrapper = ({
 		getAutoCompleteCities(search).then(res => {
 			setResults(res);
 		});
+	};
+
+	const getAutoCompleteCities = async search => {
+		const ds = new DataService();
+		const data = await ds.getAutoCompleteCities(search);
+		const listCities = new Array();
+		data &&
+			data.map(item => {
+				listCities.push({
+					LocalizedName: `${item.LocalizedName}`, //, ${item.Country.LocalizedName}
+					KeyCity: item.Key
+				});
+			});
+		return listCities;
 	};
 
 	const renderSearchResult = (object: { LocalizedName: string; KeyCity: string }, keyChange) => {

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Container, Title, TextWeather, Icon, Degrees } from './InformationWeatherItem.styles';
+import { Container, Title, TextWeather, Icon, Temperature } from './InformationWeatherItem.styles';
 
 interface DayProps {
 	name: string;
-	degrees: string;
+	temperature: string;
 	textWeather?: string;
 	iconWeather?: string;
 	width: string;
@@ -15,7 +15,7 @@ interface DayProps {
 
 const InformationWeatherItem = ({
 	name,
-	degrees,
+	temperature,
 	textWeather,
 	iconWeather,
 	width,
@@ -25,17 +25,14 @@ const InformationWeatherItem = ({
 	clickedItemFavorite
 }: DayProps) => {
 	return (
-		<Container
-			width={width}
-			height={height}
-			checked={checked}
-			onClick={() => checked && clickedItemFavorite(name, KeyCity)}
-		>
+		<Container width={width} height={height} checked={checked} onClick={() => checked && clickedItemFavorite(name, KeyCity)}>
+
 			<Title>{name}</Title>
+			
 			{iconWeather && <Icon src={`${iconWeather}`} />}
 			{textWeather && <TextWeather>{textWeather}</TextWeather>}
 
-			<Degrees>{degrees}°C</Degrees>
+			<Temperature>{temperature}°C</Temperature>
 		</Container>
 	);
 };

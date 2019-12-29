@@ -38,7 +38,7 @@ export const Icon = styled.img`
 	width: 35px;
 `;
 
-export const Degrees = styled.div`
+export const Temperature = styled.div`
 	height: 17px;
 	width: fit-content;
 	color: #848588;

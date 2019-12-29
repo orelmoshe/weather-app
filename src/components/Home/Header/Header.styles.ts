@@ -51,9 +51,10 @@ export const Button = styled.div<ButtonProps>`
   border: 1px solid rgba(53, 66, 84, 0.12);
   border-radius: 4px;
   background-color: ${props => props.clicked? '#ffcb05' :'#ffffff'};
+  opacity: 0.3;
   cursor: pointer;
   &:hover {
-    opacity: 0.3;
+    opacity: 1;
     background-color: #ffcb05;
     box-shadow: 0 0 4px 0 rgba(53, 66, 84, 0.12);
   }
