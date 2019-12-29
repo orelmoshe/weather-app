@@ -2,7 +2,7 @@ import AjaxService from './ajax.service';
 import _ from 'lodash';
 /*AGtT3X7NHATH97gYUwMC9Oj6cVn5sk8G *//*XGgsVXXQGkY6xcFFypdRUmVJHktvZarE - mekory *//*3EJpKcLSBzrz4AQxGQlD6eAs3I71x29s *//*sfMnWo3qvk3juneOb76NeuLw5yQIXkwD */
 const prefix = 'http://dataservice.accuweather.com';
-const apikey = 'xuHbBVrHVguLA5t2m9LGycS7E4hR1eAr';
+const apikey = 'zAuGm5uqY81WpcKpnm5uN1Zrmm4YIRGy';
 const ApiRoutes = {
 	AUTOCOMPLETE_SEARCH: `${prefix}/locations/v1/cities/autocomplete`,
 	CURRENT_CONDITIONS:   `${prefix}/currentconditions/v1/`,
