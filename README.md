@@ -22,7 +22,7 @@ You will use 3 endpoints: location autocomplete for the search field, get curren
 NOTE: this API is limited to 50 requests per day. our recommendation is to save the responses
 and use them locally during development.
 ********
-create a local .env file with the following keys:
+## create a local .env file with the following keys:
 
 API_KEY = {accuweather API key}
 ********
