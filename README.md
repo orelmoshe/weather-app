@@ -1,8 +1,8 @@
 # weather-app
 ********
-React(Hooks) & Redux  styled-components ;
+React(Hooks) & Redux  styled-components , using accuweather API ;
 ********
-start: npm install , npm start and enter to 'http://localhost:3000/'
+start: ``` npm install , npm start and enter to 'http://localhost:3000/' ```
 ********
 links heroku: http://weather-project-prod.herokuapp.com/
 ********
@@ -21,6 +21,10 @@ You will use 3 endpoints: location autocomplete for the search field, get curren
 
 NOTE: this API is limited to 50 requests per day. our recommendation is to save the responses
 and use them locally during development.
+********
+create a local .env file with the following keys:
+
+API_KEY = {accuweather API key}
 ********
 # Links:
 AccuWeather API: https://developer.accuweather.com
